@@ -6,9 +6,11 @@ import "./header.css";
 import { useContext } from "react";
 import SearchBox from "./SearchBox";
 import { CartContext } from "../../context/cartContext";
+import { FavoritesContext } from "../../context/favoritesContext";
 
 export default function TopHeader() {
   const { certItems } = useContext(CartContext);
+  const { favorites } = useContext(FavoritesContext);
 
   return (
     <div className="top_header">
@@ -23,8 +25,10 @@ export default function TopHeader() {
         {/* 3. الأيقونات خارج نموذج البحث */}
         <div className="header_icon">
           <div className="icon">
-            <FaRegHeart />
-            <span className="count">0</span>
+            <Link to="/favorites">
+              <FaRegHeart />
+              <span className="count">{favorites.length}</span>
+            </Link>
           </div>
           <div className="icon">
             <Link to="/cart">

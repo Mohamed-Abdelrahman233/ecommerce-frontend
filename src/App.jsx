@@ -16,6 +16,7 @@ import Accessories from "./pages/accessories/Accessories";
 import Blog from "./pages/blog/Blog";
 import Contact from "./pages/contact/Contact";
 import Login from "./pages/login/Login";
+import Favorites from "./pages/favorites/Favorites";
 
 function App() {
   const location = useLocation(); // ضروري لعمل AnimatePresence
@@ -50,6 +51,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </AnimatePresence>
     </>

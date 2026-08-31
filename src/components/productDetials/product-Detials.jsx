@@ -9,21 +9,32 @@ import "./productDetails.css";
 import toast from "react-hot-toast";
 
 import { CartContext } from "../../context/cartContext";
+import { FavoritesContext } from "../../context/favoritesContext";
 import React, { useContext } from "react";
 
 export default function ProductDetial({ productDetails }) {
   const { addToCart } = useContext(CartContext);
+  const { toggleFavorite, isFavorite } = useContext(FavoritesContext);
+  const inFavorites = isFavorite(productDetails.id);
 
   function handleAddCart() {
     addToCart(productDetails);
-    toast.success(
+    const toastId = toast.success(
       <div className="stoast-wrapper">
-        <img src={productDetails.images[0]} alt="" className="toast-img" />
+        <img
+          src={
+            productDetails.images?.[0] ||
+            productDetails.thumbnail ||
+            "https://via.placeholder.com/150"
+          }
+          alt=""
+          className="toast-img"
+        />
         <div className="toast-content">
           <strong>{productDetails.title}</strong>
           added to cart
           <button className="btn">
-            <Link to="/cart" onClick={() => toast.dismiss(t.id)}>
+            <Link to="/cart" onClick={() => toast.dismiss(toastId)}>
               view cart
             </Link>
           </button>
@@ -60,7 +71,14 @@ export default function ProductDetial({ productDetails }) {
         <button onClick={handleAddCart} className="add_to_cart_btn">
           Add To Cart <FaCartShopping />
         </button>
-        <button className="wishlist_btn">
+        <button
+          onClick={() => toggleFavorite(productDetails)}
+          className="wishlist_btn"
+          style={{
+            color: inFavorites ? "#e53e3e" : "#333333",
+            transition: "all 0.3s ease",
+          }}
+        >
           <FaHeart />
         </button>
       </div>

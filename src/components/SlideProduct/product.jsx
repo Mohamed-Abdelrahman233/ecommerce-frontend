@@ -9,29 +9,35 @@ import { FaShare } from "react-icons/fa";
 import "./slideproduct.css";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/cartContext";
+import { FavoritesContext } from "../../context/favoritesContext";
 import toast from "react-hot-toast";
 
 export default function Product({ item }) {
   const { certItems, addToCart } = useContext(CartContext);
+  const { toggleFavorite, isFavorite } = useContext(FavoritesContext);
   const isInCart = certItems.some((i) => i.id === item.id);
-  console.log(item);
+  const inFavorites = isFavorite(item.id);
 
   if (!item || !item.title) {
     return null;
   }
 
-  function handlebtn() {
+  function handleAddToCart() {
     addToCart(item);
 
-    toast.success(
+    const toastId = toast.success(
       <div className="stoast-wrapper">
-        <img src={item.images[0]} alt="" className="toast-img" />
+        <img
+          src={item.images?.[0] || item.thumbnail || "https://via.placeholder.com/150"}
+          alt=""
+          className="toast-img"
+        />
 
         <div className="toast-content">
           <strong>{item.title}</strong>
           added to cart
           <button className="btn">
-            <Link to="/cart" onClick={() => toast.dismiss(t.id)}>
+            <Link to="/cart" onClick={() => toast.dismiss(toastId)}>
               view cart
             </Link>
           </button>
@@ -68,7 +74,7 @@ export default function Product({ item }) {
       </Link>
       <div className="icon_product">
         <button
-          onClick={handlebtn}
+          onClick={handleAddToCart}
           style={{
             backgroundColor: isInCart ? "#007bff" : "", // خلفية زرقاء لو في السلة
             color: isInCart ? "#ffffff" : "black", // لون الأيقونة أبيض لو في السلة وأزرق لو مش فيها
@@ -78,7 +84,13 @@ export default function Product({ item }) {
         >
           <FaCartShopping />
         </button>
-        <button>
+        <button
+          onClick={() => toggleFavorite(item)}
+          style={{
+            color: inFavorites ? "#e53e3e" : "#333333",
+            transition: "all 0.3s ease",
+          }}
+        >
           <FaHeart />
         </button>
         <button>

@@ -4,17 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/autoplay";
 
 // Import required modules
-import SwiperCore from "swiper";
 import { Autoplay, Pagination } from "swiper/modules";
 
 import "./home.css";
 import { Link } from "react-router-dom";
-
-// تسجيل الموديولات عالمياً لضمان عمل Autoplay
-SwiperCore.use([Autoplay, Pagination]);
 
 export default function HomeSlider() {
   return (

@@ -9,7 +9,7 @@ export default function Cart() {
     useContext(CartContext);
 
   let totalPrice = 0;
-  const renderedItems = certItems.map((item) => {
+  certItems.forEach((item) => {
     totalPrice += item.price * (item.quantity || 1);
   });
 

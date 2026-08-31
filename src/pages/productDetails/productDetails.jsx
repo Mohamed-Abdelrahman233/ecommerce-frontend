@@ -30,16 +30,18 @@ export default function ProductDetails() {
     fetchProduct();
   }, [id]);
 
+  const category = productDetails?.category;
+
   useEffect(() => {
-    if (!productDetails) return;
-    fetch(`https://dummyjson.com/products/category/${productDetails.category}`)
+    if (!category) return;
+    fetch(`https://dummyjson.com/products/category/${category}`)
       .then((res) => res.json())
       .then((data) => {
         setRelatedProduct(data.products);
       })
       .catch((error) => console.error(error))
       .finally(() => setLoadingRelatedProduct(false));
-  }, [productDetails?.category]);
+  }, [category]);
 
   if (loading) {
     return <p>loading.....</p>;
