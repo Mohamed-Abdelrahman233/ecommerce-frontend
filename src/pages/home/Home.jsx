@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import HomeSlider from "../../components/slidehome/homeSlider.jsx";
 import SlideProduct from "../../components/SlideProduct/SlideProduct.jsx";
 import PageTransition from "../../components/PageTransition.jsx";
+import Loading from "../../components/loading/Loading.jsx";
 const categories = [
   "laptops",
   "smartphones",
@@ -46,7 +47,7 @@ export default function ProductsComponent() {
         <HomeSlider />
 
         {loading ? (
-          <p>loading....</p>
+          <Loading text="Loading products..." />
         ) : (
           categories.map((catgory) => (
             <SlideProduct

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Product from "../../components/SlideProduct/product";
 import PageTransition from "../../components/PageTransition";
+import Loading from "../../components/loading/Loading";
 import "./accessories.css";
 
 const accessoryCategories = [
@@ -33,7 +34,7 @@ export default function Accessories() {
   }, []);
 
   if (loading) {
-    return <p className="loading">Loading accessories...</p>;
+    return <Loading text="Loading accessories..." />;
   }
 
   return (

@@ -6,6 +6,7 @@ import "../../components/productDetials/productDetails.css";
 import SlideProduct from "../../components/SlideProduct/SlideProduct";
 import ProductDetial from "../../components/productDetials/product-Detials";
 import PageTransition from "../../components/PageTransition";
+import Loading from "../../components/loading/Loading";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -44,7 +45,7 @@ export default function ProductDetails() {
   }, [category]);
 
   if (loading) {
-    return <p>loading.....</p>;
+    return <Loading text="Loading product..." />;
   }
 
   return (
@@ -57,7 +58,7 @@ export default function ProductDetails() {
           </div>
         </div>
         {loadingRelatedProduct ? (
-          <p> loading.....</p>
+          <Loading text="Loading related products..." />
         ) : (
           <SlideProduct
             title={productDetails?.category}

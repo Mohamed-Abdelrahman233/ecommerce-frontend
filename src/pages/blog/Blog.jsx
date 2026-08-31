@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PageTransition from "../../components/PageTransition";
+import Loading from "../../components/loading/Loading";
 import "./blog.css";
 
 export default function Blog() {
@@ -16,7 +17,7 @@ export default function Blog() {
   }, []);
 
   if (loading) {
-    return <p className="loading">Loading blog posts...</p>;
+    return <Loading text="Loading blog posts..." />;
   }
 
   return (

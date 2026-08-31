@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Product from "../../components/SlideProduct/product";
+import Loading from "../../components/loading/Loading";
 import "./BrowseCategory.css";
 
 export default function BrowseCategory() {
@@ -20,7 +21,7 @@ export default function BrowseCategory() {
   }, [category]);
 
   if (loading) {
-    return <p className="loading">Loading products...</p>;
+    return <Loading text="Loading products..." />;
   }
 
   return (

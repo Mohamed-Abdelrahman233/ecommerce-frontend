@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import PageTransition from "../../components/PageTransition";
 import Product from "../../components/SlideProduct/product";
+import Loading from "../../components/loading/Loading";
 import "./search.css";
 
 export default function SearchResults() {
@@ -32,7 +33,7 @@ export default function SearchResults() {
       <div className="search_page_wrapper">
         <div className="category_products">
           {loading ? (
-            <p className="loading">Loading search results...</p>
+            <Loading text="Loading search results..." />
           ) : (
             <div className="container">
               <div className="top_slide">
