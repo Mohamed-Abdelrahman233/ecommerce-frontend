@@ -1,0 +1,269 @@
+.top_header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* تحديث كلاس اللوجو لكي ينطبق على الصورة مباشرة */
+.top_header .logo img {
+  width: 160px;
+  display: block;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: var(--white_color);
+}
+
+.top_header .search_box {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  background: var(--bg-color);
+  border-radius: 30px;
+  border: 1px solid var(--main_color); /* تصحيح ver إلى var */
+}
+
+.top_header .search_box input {
+  height: 45px;
+  width: 440px;
+  padding: 5px 15px 5px 20px;
+  background: var(--bg-color);
+  border-radius: 30px 0 0 30px;
+}
+
+.top_header .search_box button {
+  height: 45px;
+  width: 60px;
+  background: var(--main_color);
+  font-size: 18px;
+  border-radius: 0 30px 30px 0px;
+  cursor: pointer;
+  color: var(--white_color); /* إضافة لون للعدسة */
+}
+
+.top_header .header_icon {
+  display: flex;
+  gap: 30px;
+}
+
+.top_header .header_icon .icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.top_header .header_icon svg {
+  font-size: 30px;
+}
+
+.top_header .header_icon .count {
+  position: absolute;
+  top: -5px;
+  right: -10x;
+  background-color: var(--main_color);
+  color: var(--white_color);
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+/* --- 1. الشريط الأزرق الرئيسي --- */
+.btm_header {
+  background: var(--main_color, #0090f0);
+  height: 50px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btm_header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* يوزع الشمال (الأقسام) والمنتصف (الروابط) واليمين (الأيقونات) */
+  height: 100%;
+  position: relative; /* مرجع ثابت للقائمة المنسدلة */
+}
+
+/* --- 2. زر التصنيفات (على الشمال) --- */
+.category_btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  height: 100%;
+  padding: 0 18px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.category_btn:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+/* --- 3. القائمة المنسدلة (Hover) --- */
+.category_nev_list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 230px;
+  max-height: 320px;
+  overflow-y: auto;
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 6px 6px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease-in-out;
+}
+
+/* ظهور القائمة عند الـ Hover */
+.category_btn:hover + .category_nev_list,
+.category_nev_list:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.category_nev_list a {
+  padding: 11px 16px;
+  color: #333333;
+  text-decoration: none;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.category_nev_list a:hover {
+  background-color: #f8f9fa;
+  color: var(--main_color, #0090f0);
+}
+
+/* --- 4. روابط المنتصف (في نصف الشريط بالضبط) --- */
+.Nav_list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* يضمن توسيط الروابط في منتصف الشريط بالكامل */
+}
+
+.Nav_list a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 18px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.Nav_list a:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+/* --- 5. أيقونات الحساب (في أقصى اليمين) --- */
+.sign_icon {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto; /* يدفع الأيقونات لليمين خالص */
+}
+
+.sign_icon a {
+  color: #ffffff;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+
+.sign_icon a:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+/* الحاوية الرئيسية لضمان تموضع القائمة المنسدلة بشكل صحيح */
+.SearchBox_contenar {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* اضبط العرض حسب تصميمك */
+  margin: 0 auto;
+}
+
+/* القائمة المنسدلة */
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none; /* إلغاء النقاط السوداء */
+  margin: 6px 0 0 0;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000; /* تظهر فوق أي محتوى آخر */
+}
+
+/* كل عنصر داخل القائمة */
+.suggestions li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.suggestions li:last-child {
+  border-bottom: none;
+}
+
+/* تأثير التمرير (Hover) */
+.suggestions li:hover {
+  background-color: #f5f8ff;
+}
+
+/* صورة المنتج المصغرة */
+.suggestions li img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+/* اسم المنتج */
+.suggestions li span {
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

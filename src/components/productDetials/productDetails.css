@@ -1,0 +1,188 @@
+.Item_dateils {
+  padding: 40px 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #333;
+  width: 100%;
+}
+
+/* محاذاة كل عناصر الحاوية مع أعلى نقطة (Top Alignment) */
+.contenar {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-top: 120px;
+}
+
+/* ================= قسم الصور ================= */
+.img_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.big_img {
+  width: 100%;
+  display: flex;
+  align-items: flex-start; /* رفع الصورة للأعلى بدون هوامش علوية */
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.big_img img {
+  width: auto;
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ================= الصور المصغرة ================= */
+.small_img {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  width: 100%;
+}
+
+.small_img img {
+  width: 90px !important;
+  height: 90px !important;
+  object-fit: contain;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.small_img img:hover,
+.small_img img.active_thumb {
+  border-color: #0088ff;
+  box-shadow: 0 2px 8px rgba(0, 136, 255, 0.25);
+}
+
+/* ================= قسم التفاصيل ================= */
+.detais_item {
+  flex: 1;
+  margin-top: 80px; /* صفّرنا الهامش تماماً لتوازي أعلى العنوان مع التليفون */
+  padding-top: 0;
+  width: 100%;
+}
+
+.detais_item h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0088ff;
+  margin: 0 0 0 0; /* إلغاء الهامش العلوي للعنوان */
+  line-height: 1.1; /* محاذاة الارتفاع المباشر مع رأس الصورة */
+}
+
+.stars {
+  color: #ffc107;
+  display: flex;
+  gap: 4px;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 18px;
+}
+
+.info_row {
+  font-size: 15px;
+  color: #222;
+  font-weight: 600;
+  margin: 6px 0;
+}
+
+.info_row span {
+  font-weight: normal;
+  margin-left: 6px;
+}
+
+.status_text {
+  color: #0088ff !important;
+}
+
+.brand_text {
+  color: #0088ff !important;
+}
+
+.desc {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 20px 0;
+  max-width: 550px;
+}
+
+.stock_alert {
+  color: #0088ff;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+/* الأزرار */
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.add_to_cart_btn {
+  background-color: #0088ff;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.add_to_cart_btn:hover {
+  background-color: #0070d2;
+}
+
+.wishlist_btn {
+  background-color: #f5f5f5;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px;
+}
+
+.wishlist_btn:hover {
+  background-color: #e8e8e8;
+  color: #e63946;
+}
+
+.loading_state {
+  text-align: center;
+  padding: 60px;
+  font-size: 18px;
+}
