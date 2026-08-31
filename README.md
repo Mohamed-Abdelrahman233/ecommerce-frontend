@@ -20,6 +20,3 @@ npm install
 npm run dev
 ```
 
-## Note
-
-This is the **frontend only**. Product data comes from the [DummyJSON](https://dummyjson.com/) API.
